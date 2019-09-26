@@ -1,0 +1,30 @@
+{
+	"name" : "merlinthemagic/mtm-spreadsheet",
+	"type" : "library",
+	"description" : "Spreadsheet tools for PHP 7",
+	"version" : "0.0.1",
+	"keywords" : [
+		"excel",
+		"csv"
+	],
+	"homepage" : "https://github.com/merlinthemagic/MTM-Spreadsheet",
+	"license" : "LGPL-3.0",
+	"authors" : [{
+			"name" : "Martin Peter Madsen",
+			"email" : "dev@martinpetermadsen.com",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=7.3.0",
+		"merlinthemagic/mtm-utilities" : ">=0.0.1",
+		"merlinthemagic/mtm-fs" : ">=0.0.1",
+		"merlinthemagic/mtm-compress" : ">=0.0.1"
+	},
+	"autoload" : {
+		"files" : [
+			"./Enable.php"
+		]
+	},
+	"minimum-stability" : "dev"
+}
