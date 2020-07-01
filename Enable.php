@@ -16,9 +16,4 @@ if (defined("MTM_SPREADSHEET_BASE_PATH") === false) {
 			}
 		}
 	});
-	function loadMtmSpreadsheet()
-	{
-		
-	}
-	loadMtmSpreadsheet();
 }

@@ -4,6 +4,25 @@ namespace MTM\Spreadsheet\Tools\CSV;
 
 class Get
 {
+	public function getFromFile($fileObj)
+	{
+		if ($fileObj->getExists() === false) {
+			throw new \Exception("File does not exist");
+		}
+		//CSV files can have line breaks in cells
+		$fp		= fopen($fileObj->getPathAsString(), 'r');
+		$rows	= array();
+		while (true) {
+			$row	= fgetcsv($fp);
+			if ($row == false) {
+				break;
+			} else {
+				$rows[]	= $row;
+			}
+		}
+		fclose($fp);
+		return $rows;
+	}
 	public function getFromArray($rows)
 	{
 		if (is_array($rows) === false) {
@@ -21,10 +40,10 @@ class Get
 			if ($cCount == count($row)) {
 				foreach ($row as $cId => $cell) {
 					if ($cell != "") {
-						$row[$cId] = "\"" . $this->escapeValue($cell) . "\"";
+						$row[$cId] = $this->escapeValue($cell);
 					}
 				}
-				$rows[$rId]		= implode(", ", $row);
+				$rows[$rId]		= implode(",", $row);
 				
 			} else {
 				throw new \Exception("Row has an incorrect amount of cells: " . $rId);

@@ -18,20 +18,4 @@ class Actions extends Get
 		}
 		return $value;
 	}
-	public function getFromFile($fileObj)
-	{
-		//CSV files can have line breaks in cells
-		$fp		= fopen($fileObj->getPathAsString(), 'r');
-		$rows	= array();
-		while (true) {
-			$row	= fgetcsv($fp);
-			if ($row == false) {
-				break;
-			} else {
-				$rows[]	= $row;
-			}
-		}
-		fclose($fp);
-		return $rows;
-	}
 }
